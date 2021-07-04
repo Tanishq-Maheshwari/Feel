@@ -1,0 +1,62 @@
+title FEEL
+link(href='https://fonts.googleapis.com/css?family=Montserrat|Ubuntu|Oswald:wght@500|Kaushan+Script', rel='stylesheet')
+link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', crossorigin='anonymous')
+link(rel='stylesheet', type='text/css', href='/css/home.css')
+link(rel='icon',href='/favicon.ico')
+script(defer, src='https://use.fontawesome.com/releases/v5.0.7/js/all.js')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV', crossorigin='anonymous')
+section#feel-nav.colored-section
+  .container-fluid
+  //  Nav Bar 
+  nav.navbar.navbar-expand-lg
+    a.navbar-brand(href='/') FEEL
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon.
+
+
+    .collapse.navbar-collapse#navbarSupportedContent
+      ul.navbar-nav.ml-auto
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#navbarDropdown(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false').
+
+            Welcome
+
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='/userProfile') Profile
+            a.dropdown-item(href='/logout') Logout
+        li.nav-item
+          a.nav-link(href='#footer') Contact
+section#feel-desc.white-section
+  .container-fluid.sec-desc.row(style='margin-top:50px;')
+    .container-fluid.col-lg-2(style='padding:50px; margin-top:55px;')
+      h1 B
+      h1 O
+      h1 O
+      h1 K
+      h1 S
+    .container-fluid.col-lg-3(style='padding:50px;')
+      p Select Genre
+      form(method='POST',action='/books')
+        button.btn.btn-dark.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='science fiction',name='button') Science Fiction
+        button.btn.btn-primary.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='sports',name='button') Sports
+        button.btn.btn-secondary.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='comic',name='button')  Comic
+        button.btn.btn-danger.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='business',name='button') Business
+        button.btn.btn-info.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='biography',name='button') Biography
+        button.btn.btn-warning.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='self help',name='button') Self Help
+        button.btn.btn-secondary.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='travel',name='button') Travel
+        button.btn.btn-success.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/books\'',value='history',name='button') History
+    .container-fluid.col-lg-6(style='border:1px solid; padding:50px;')
+      p Recommended Music:-
+      br
+      each book in books.items
+        p #{book.volumeInfo.title} by #{book.volumeInfo.authors}
+
+footer#footer.colored-section
+  .container-fluid
+    i.fab.fa-twitter.footer-logo
+    i.fab.fa-facebook-f.footer-logo
+    i.fab.fa-instagram.footer-logo
+    i.fas.fa-envelope.footer-logo
+    p © Copyright 2021 Feel

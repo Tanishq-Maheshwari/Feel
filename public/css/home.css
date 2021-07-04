@@ -1,0 +1,210 @@
+body {
+  font-family: "Montserrat";
+  text-align: center;
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Oswald", sans-serif;
+  padding-bottom: 20px;
+  color: #000;
+  font-weight: bolder;
+}
+
+p {
+  /* color: #8f8f8f; */
+  font-size: 20px;
+}
+
+a {
+  color: #000;
+}
+
+/* containers */
+.container-fluid {
+  padding: 0;
+}
+
+#feel-desc {
+  padding: 50px;
+}
+
+.colored-section {
+  color: #3b0e08;
+  background-color: #e9e0d2;
+}
+
+/* #f5f1df */
+.white-section {
+  background-color: #fff;
+}
+
+/*navbar*/
+.navbar {
+  box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, .5);
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background: #e9e0d2;
+}
+
+nav .navbar-brand {
+  font-family: 'Kaushan Script', cursive;
+}
+
+.nav-img {
+  width: 120px;
+  height: 70px;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 540;
+  font-family: "Montserrat-light";
+  color: #000;
+}
+
+.nav-item a:hover,
+.nav-item a:active {
+  color: #98ca91;
+}
+
+.nav-item--cta a {
+  color: #fff;
+  background: #37b391;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-item--cta a:hover,
+.nav-item--cta a:active {
+  color: white;
+  background: #000;
+  border: none;
+}
+
+/*Description*/
+.sec-desc {
+  padding: 50px;
+  text-align: center;
+}
+
+.sec-desc h1 {
+  font-weight: bolder;
+}
+
+.sec-padding {
+  padding: 50px;
+}
+
+/*Remedies*/
+button {
+  margin-top: 20px;
+}
+
+.colored-section button {
+  background: #98ca91;
+}
+
+.sec-remedy {
+  padding: 50px;
+}
+
+.sec-remedy p {
+  color: #3b0e08;
+}
+
+.remedy-box {
+  padding: 2.1%;
+}
+
+.icon, .i-post {
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #a799c4;
+}
+
+/* Image */
+.music-img {
+  height: 25px;
+  width: 25px;
+}
+
+/*Help*/
+.sec-help {
+  padding: 50px;
+}
+
+.i-post:hover {
+  color: #98ca91;
+}
+
+/* Post Section */
+.post-section {
+  margin-top: 50px;
+  text-align: left;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.post-two {
+  padding: 50px;
+  text-align: center;
+}
+
+.post-one {
+  background: #f6f6f6;
+  padding: 10px 0 0 20px;
+}
+
+.post-one h2 {
+  display: inline;
+}
+
+.post-one span {
+  float: right;
+  font-size: 25px;
+  padding-right: 7px;
+}
+
+.post-three {
+  background: #f6f6f6;
+  padding: 10px;
+}
+
+.post-three p {
+  padding-left: 15px;
+  margin-bottom: 1px;
+}
+
+.likesCount {
+  padding-left: 5px;
+}
+
+.toggleColor {
+  background: #89cff0;
+  color: white;
+}
+
+/*footer*/
+#footer {
+  padding: 20px;
+  box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.footer-logo {
+  margin: 2% 1%;
+}

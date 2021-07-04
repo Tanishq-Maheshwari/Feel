@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FEEL Signup</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- GoogleFonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu|Oswald:wght@500|Kaushan+Script" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!-- Bootstrap js library -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <!-- links for sign in bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
+
+  <!-- js file for sign in bootstrap-->
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+
+
+  <link rel="stylesheet" href="/css/signin.css" />
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+
+<body onload="myFunc()">
+  <section id="feel-nav" class="colored-section">
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg" >
+        <a class="navbar-brand" href="/">FEEL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
+            <li class="nav-item nav-item--cta">
+              <a class="nav-link" href="/signin">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </section>
+  <section>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+              <div class="card-img-left d-none d-md-flex">
+                <!-- Background image for card set in CSS! -->
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Register</h5>
+                <form class="form-signin" action="/signup" method="POST">
+                  <!-- <div class="form-label-group">
+                    <input type="text" name="username" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                    <label for="inputUserame">Username</label>
+                  </div> -->
+
+                  <div class="form-label-group">
+                    <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required>
+                    <label for="inputEmail">Email address</label>
+                  </div>
+
+                  <hr>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputConfirmPassword" name="cpassword" class="form-control" placeholder="Password" required>
+                    <label for="inputConfirmPassword">Confirm password</label>
+                  </div>
+
+                  <button onclick="check()" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                  <a class="d-block text-center mt-2 small" href="/signin">Sign In</a>
+                  <hr class="my-4">
+                  <button onclick="window.location.href='/auth/google'" class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+                  <button onclick="window.location.href='/auth/facebook'" class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+    </main>
+  </section>
+    <footer id="footer" class="colored-section">
+      <div class="container-fluid">
+      <i class="fab fa-twitter footer-logo"></i>
+      <i class="fab fa-facebook-f footer-logo"></i>
+      <i class="fab fa-instagram footer-logo"></i>
+      <i class="fas fa-envelope footer-logo"></i>
+      <p>© Copyright 2021 Feel</p>
+    </div>
+    </footer>
+    script.
+      function check(){
+        var password = $("#inputPassword").val();
+        var confirmPassword = $("#inputConfirmPassword").val();
+
+        if (password !== confirmPassword)
+        alert("Passwords do not match!");
+      }
+      function myFunc(){
+        if(#{exist}) alert("Email already exists.");
+      }
+</body>
+
+</html>

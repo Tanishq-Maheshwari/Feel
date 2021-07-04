@@ -1,0 +1,105 @@
+title FEEL
+link(href='https://fonts.googleapis.com/css?family=Montserrat|Ubuntu|Oswald:wght@500|Kaushan+Script', rel='stylesheet')
+link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', crossorigin='anonymous')
+link(rel='stylesheet', type='text/css', href='/css/home.css')
+link(rel='icon',href='/favicon.ico')
+script(defer, src='https://use.fontawesome.com/releases/v5.0.7/js/all.js')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN', crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV', crossorigin='anonymous')
+section#feel-nav.colored-section
+  .container-fluid
+    //  Nav Bar 
+    nav.navbar.navbar-expand-lg
+      a.navbar-brand(href='/') FEEL
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon.
+
+
+      .collapse.navbar-collapse#navbarSupportedContent
+        ul.navbar-nav.ml-auto
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#navbarDropdown(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false').
+
+              Welcome
+
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='/userProfile') Profile
+              a.dropdown-item(href='/logout') Logout
+          li.nav-item
+            a.nav-link(href='#footer') Contact
+section#feel-desc.white-section
+  .container-fluid(style='margin-top:100px;')
+    h1 Our Users Speak
+    button.btn.btn-dark.btn-lg.btn-block(type='submit', onclick='window.location.href=\'/userProfile\'',name='button') Create your own post
+  each user in users
+    each p in user.posts
+      - let iD=(p._id).toString()
+      .container-fluid.row.post-section
+        .container-fluid.col-lg
+          .post-one
+            h2 #{user.fullname}
+            span #{p.date.getDate()}-#{p.date.getMonth()+1}-#{p.date.getFullYear()}
+          .post-two
+            p #{p.post}
+          .post-three
+            button(onclick="actOnPost(event);" , data-postid=iD) Like
+            //  i.far.fa-thumbs-up
+            span(id="likes-count-"+iD,class="likesCount")  #{p.likes}
+
+footer#footer.colored-section
+  .container-fluid
+    i.fab.fa-twitter.footer-logo
+    i.fab.fa-facebook-f.footer-logo
+    i.fab.fa-instagram.footer-logo
+    i.fas.fa-envelope.footer-logo
+    p © Copyright 2021 Feel
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    script.
+      var updatePostStats = {
+        Like: function (postId) {
+          document.querySelector("#likes-count-"+postId).textContent++;},
+        Unlike: function(postId) {
+          document.querySelector("#likes-count-"+postId).textContent--;}
+      };        
+      var toggleButtonText = {
+        Like: function(button) {
+          button.textContent = "Unlike";
+          button.classList.add("toggleColor");
+        },
+        Unlike: function(button) {
+          button.textContent = "Like";
+          button.classList.remove("toggleColor");
+        }
+      };      
+      var actOnPost = function (event) {
+        /* console.log(event); */
+        var postId = event.target.dataset.postid;
+        var action = event.target.textContent.trim();
+        /* console.log(postId); */
+        console.log(action.toString());
+        toggleButtonText[action](event.target);
+        /* updatePostStats[action](postId); */
+        const url="/posts/" + postId + "/act";
+        let x=action.toString();
+        axios.post(url, { act: x });
+      };
+    script.
+      var pusher = new Pusher("8f213216a7dfcb6e6b36", {
+        cluster:"ap2"
+      });
+      var socketId;
+      // retrieve the socket ID on successful connection
+      pusher.connection.bind('connected', function() {
+        socketId = pusher.connection.socket_id;
+      });
+      var channel = pusher.subscribe('post-events');
+      channel.bind('postAction', function(data) {
+        // log message data to console - for debugging purposes
+        console.log(data);
+        var action = data.action;
+        updatePostStats[action](data.postId);
+      });
